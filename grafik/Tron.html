@@ -1,0 +1,39 @@
+<script src="http://spelprogrammering.nu/simple.js">
+   function hasCrashed(){
+       return(getPixel(cycle.x,cycle.y).blue != 0)
+   }
+   function start(){
+       //Objekt cycle innehåller egenskapper hos strecket som rör på sig.
+       cycle={x:20,y:250,xSpeed:1,ySpeed:0,score:0,size:5};
+
+       //Rittar spelfälltet.
+       line(0,0,totalWidth, 0,10,"blue");
+       line(0,0,0,totalHeight, 0,10,"blue");
+       line(0,totalHeight,totalWidth, totalHeight,10,"blue");
+       line(totalWidth, 0,totalWidth,totalHeight,"blue");
+       line(0,100,totalWidth, 100,5,"blue");
+   }
+   function update(){
+       //Ritta sträcken som rör på sig
+       rectangle(cycle.x,cycle.y,cycle.size,cycle.size,"blue");
+        //Uppdatera score
+        cycle.score++;
+
+        rectangle(10,10,totalWidth-20,80,"white");
+        text(20,75,70,"TRON| Score:"+cycle.score,"blue");
+
+        if(keyboard.left){cycle.xSpeed = -1; cycle.ySpeed = 0;}
+        if(keyboard.right){cycle.xSpeed = 1; cycle.ySpeed = 0;}
+        if(keyboard.up){cycle.ySpeed = -1; cycle.ySpeed = 0;}
+        if(keyboard.down){cycle.ySpeed = 1; cycle.ySpeed = 0;}
+
+        cycle.x += cycle.xSpeed*cycle.size;
+        cycle.y += cycle.ySpeed*cycle.size;
+
+        if(hasCrashed(cycle)){
+            rectangle(cycle.x,cycle.y,cycle.size,cycle.size, "red");
+            alert("END OF LINE");
+            stopUpdate();
+        }
+   }
+</script>

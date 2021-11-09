@@ -1,0 +1,21 @@
+<script src="http://spelprogrammering.nu/simple.js">
+    function start(){
+        ball={x:600,y:250,farg:"yellow"}; 
+        rackt={x:755,y:197}
+        tria={x:975,y:295}
+    }
+
+
+function update(){
+            fill("green");
+            circle(ball.x,ball.y,50,"red");
+                ball.x--;
+                ball.y++; 
+            rectangle(rackt.x,rackt.y,35,45,"blue");  
+                rackt.x++;
+                rackt.y--;  
+            rectangle(tria.x,tria.y,89,90,"orange");
+            tria.x--;
+            tria.y++;
+        }
+</script>

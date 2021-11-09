@@ -1,0 +1,12 @@
+<script src="http://spelprogrammering.nu/simple.js">
+    function start(){
+        let antal=Math.floor(Math.random()*1000)+1;
+for(i=0;i<antal;i++){
+    let r=Math.floor(Math.random()*255)+0;
+    let g=Math.floor(Math.random()*255)+0;
+    let b=Math.floor(Math.random()*255)+0;
+    let rektangle={x:random(2000),y:random(2000),storlek:random(155),farg: mixColor(r, g, b)}
+    rectangle(rektangle.x,rektangle.y,rektangle.storlek,rektangle.farg);
+}
+            }
+    </script>

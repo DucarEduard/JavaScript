@@ -1,0 +1,72 @@
+<script src="https://spelprogrammering.nu/simple.js">
+//Funktion för att definiera hur snabbt spindlarna ska röra sig.
+function Spider(startX,startY,xSpeed,ySpeed){
+        this.x = startX;
+        this.y = startY;
+//If stas för att visa spindlarna får negativt fart.
+        if(random(2)==0){
+             this.xSpeed = xSpeed;
+        }else{
+            this.xSpeed = -xSpeed;
+        }
+        if(random(2)==0){
+            this.ySpeed = ySpeed;
+        }else{
+            this.ySpeed = -ySpeed;
+        }
+       
+        
+
+    //Funktion för att updatera spindlarna.
+    this.update = function(){
+    //If sats för att stopa uppdatera spindlarna som går ut från skarmen.
+    if(this.x>0 && this.x <totalWidth && this.y>0 && this.y <totalHeight){
+
+     //Ger nya positioner för spindlarna.
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+    //Ritar spindlarna.
+            save();
+            translate(this.x,this.y);
+            circle(0,0,25,"black");
+            circle(25,0,30,"black");
+            circle(30,0,35,"black");
+            circle(60,0,25,"black");
+            circle(60,10,5,"red");
+            circle(60,-2,5,"red");
+            rectangle(30,0,10,50,"black");
+            rectangle(10,0,10,50,"black");
+            rectangle(-5,0,10,50,"black");
+            rectangle(-5,-55,10,50,"black");
+            rectangle(10,-55,10,50,"black");
+            rectangle(30,-55,10,50,"black");
+            rectangle(50,-55,9,50,"black");
+            rectangle(45,0,10,50,"black");
+}
+            restore();
+}
+    }
+    //Funktion att ritta mera spindlar och dela de på skarmen.
+    function start(){
+        spiders = [];
+        interval = 1;
+
+        //For loop för att skapa spindlar och sättar de in i spiders arrayn.
+        for(let i=0;i<100;i++){
+            spiders.push(new Spider(totalWidth/2,totalHeight/2,5,5));
+        }
+    }
+    //Funktion för att updatera skarmen. 
+    function update(){
+        clearScreen();
+        interval++;
+    //For sats för att uppdater spindlarna.
+        for(let i=0;i<spiders.length;i++){
+            spiders[i].update();
+        }
+        //If sats för att bestämma hur snabbt spindlarna skulle ritas på skarmen.
+        if(interval%20==0){
+            spiders.push(new Spider(totalWidth/2,totalHeight/2,(1+10*random(100)/100),(1+10*random(100)/100)));
+            }
+        }
+</script>

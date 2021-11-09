@@ -1,0 +1,9 @@
+<script>
+    let kapital=Number(prompt("Vad är ditt start kapital"));
+    let procent;
+    for(let i=1;i<5;i++){
+        procent=Number(prompt("Hur stort är procentuella förändring är"+i));
+        kapital=kapital*(1+procent/100);
+    }
+    alert("Ditt kapital efter fyra år är"+kapital.toFixed(2));
+</script>

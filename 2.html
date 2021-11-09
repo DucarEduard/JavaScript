@@ -1,0 +1,25 @@
+<script>
+    let svar;
+    do{
+        svar=prompt("Vill du äta 1.Pizza, 2.Hamburgare, 3.Varma mackor,4.Kanelbulle,0.Mät");
+        switch(Number(svar)){
+        case(1):
+        alert("Här kommer din pizza.");
+        break;
+        case(2):
+        alert("Här kommer din hamburgare.");
+        break;
+        case(3):
+        alert("Här kommer dina varma mackor.");
+        break;
+        case(4):
+        alert("Här kommer din kanelbulle.");
+        break;
+        case(0):
+        alert("Jag är mät.");
+        break;
+        default:
+            alert("Det har vi inte på menyn.")
+        }
+    }while(svar!=0);
+</script>

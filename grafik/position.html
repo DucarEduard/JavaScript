@@ -1,0 +1,20 @@
+<script src="http://spelprogrammering.nu/simple.js">
+    function start(){
+        //translate() flytar på 0,0 på kordinat systemet.
+        //rotate() roterar.
+        //scale() minska/ökar storleken på kordinat systemet.
+        //save(),restore() sparar kordinat systemet instälningar.
+
+        circle(0,0,50,"red");
+        save();
+        translate(200,200);
+        circle(0,0,50,"blue");
+        restore();
+        save();
+        translate(300,100);
+        rotate(90);
+        scale(0.8,0.8);
+        rectangle(0,0,random(200),100,"green");
+        restore();
+    }
+</script>

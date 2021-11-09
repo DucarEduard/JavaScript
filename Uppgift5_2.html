@@ -1,0 +1,25 @@
+<script>
+    function laddaSida(){
+        //en funktion som laddar en sidlängd från användare och returnerar den till programet
+        let sida;
+        sida=Number(prompt("Skriv in sidans längd"));
+        return sida;
+    }
+    function kubVolym(sida){
+        //en funktion som tar emot kubens sidalängd som argument,beräknar volymen och returnerar den till programet
+        let x;
+        x=(sida*sida*sida);
+        return x;
+    }
+    function skrivUt(volym){
+        //en funktion som tar emot kubens volym och skriver ut det med en alert
+        let volym=x;
+        alert("Din kubbs volym är" + volym);
+    }
+    
+    do{
+        sida=laddaSida();
+        volym=kubVolym(sida);
+        skrivUt(volym);
+    }while(confirm("Vill du beräkna volymen till en annan kub ?"));
+</script>

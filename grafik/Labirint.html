@@ -1,0 +1,47 @@
+<script src="http://spelprogrammering.nu/simple.js">
+//Labirintens funktioner.
+function hasCrashed1(){
+    return (getPixel(mouse.x, mouse.y).blue != 0)
+}
+function hasCrashed2(){
+    return (getPixel(mouse.x, mouse.y).red != 0)
+}
+
+
+ function start(){
+        alert("Starta labirinten via att gå igenom den gröna rektangel");
+      
+    }
+    //Funktion för att visa eller gömma mussen.
+    function update(){
+        if(mouse.x<700){
+            hideMouse();
+        }else{
+            showMouse();
+        }
+
+        //Ritar labirinten
+       rectangle(250,250,255,369,"red");
+       rectangle(300,310,288,366,"red");
+       rectangle(0,10,128,230,"red");
+       rectangle(100,210,145,135,"red");
+       rectangle(700,110,188,766,"red");
+       rectangle(135,369,45,55,"blue");
+       rectangle(730,6,145,124,"green");
+       rectangle(850,35,145,127,"red");
+       rectangle(145,434,134,344,"red");
+
+       //If satsen gör så att om mussen komer på röda recktanglar chrasar det. 
+       if (hasCrashed2()){
+        rectangle(mouse.x, mouse.y, mouse.size, mouse.size, "red");
+        alert("Get ok scoped! I am not a gnomme, get gnommed!");
+        stopUpdate();
+        }
+        // If sats för att vätta om musen kom till slutet av labirinten.
+        if (hasCrashed1()){
+        rectangle(mouse.x, mouse.y, mouse.size, mouse.size, "blue");
+        alert("Du van här är en 69");
+        stopUpdate();
+        }
+    }
+</script>

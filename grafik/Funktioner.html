@@ -1,0 +1,32 @@
+<script src="http://spelprogrammering.nu/simple.js">
+  function drawZombie(x,y){
+                    save();
+                    translate(x,y);
+                    if(x<totalWidth/2){
+                      scale(-1,1)  
+                    }else{
+                        scale(1,1)
+                    }
+                    
+                    rectangle(3,110,23,65,"lightgrenn");
+                    rectangle(3,95,23,65,"grey");
+                    circle(15,80,20,"lightgreen");
+                    circle(0,80,3,"red");
+                    rectangle(-35,100,30,14,"lightgrenn");
+                    rectangle(-20,100,30,14,"grey");
+                    restore();
+                }
+  function start(){
+            /*
+                function NAME(ARGUMENT){
+                    //Kod som ska köras
+                    return VÄRDET_SOM_SKA_RETURNERAS
+                }
+            */
+       for(i=0;i<=69;i++){
+           let zombie = {x:random(70, totalWidth),y:random(40, totalHeight)}
+           drawZombie(zombie.x,zombie.y, -1,1);
+           drawZombie(zombie.x,zombie.y,1,-1);
+       }
+    }
+</script>
